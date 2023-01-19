@@ -16,4 +16,8 @@ This machine uses regular ingredients — coffee, milk, and plastic cups. Should
 - It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
 - It displays how many supplies it has on the screen. Work on the main loop: now, the menu keeps updating until users choose to exit.
 
-## To start
+## Tech stack
+
+- HTML
+- CSS
+- JavaScript (OOP)
