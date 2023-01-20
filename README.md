@@ -10,11 +10,11 @@ This machine uses regular ingredients — coffee, milk, and plastic cups. Should
 
 ## Feature list
 
-- It makes a coffee.
-- It evaluates how many ingredients it takes to make a coffee.
-- It calculates how many cups it can make based on the number of ingredients.
-- It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
-- It displays how many supplies it has on the screen. Work on the main loop: now, the menu keeps updating until users choose to exit.
+- [x] It makes a coffee.
+- [ ] It evaluates how many ingredients it takes to make a coffee.
+- [ ] It calculates how many cups it can make based on the number of ingredients.
+- [ ] It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
+- [ ] It displays how many supplies it has on the screen. Work on the main loop: now, the menu keeps updating until users choose to exit.
 
 ## Tech stack
 
