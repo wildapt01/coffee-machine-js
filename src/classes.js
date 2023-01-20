@@ -4,14 +4,14 @@ export class coffee {
   }
 
   // Methods
-  makeCoffee(quantity) {
+  makeCoffee(num) {
     const needs = { beans: 20, water: 15, cup: 1 };
-    const product = quantity > 1 ? "coffees" : "coffee";
+    const product = num > 1 ? "coffees" : "coffee";
     const consummed = {
-      beans: needs.beans * quantity,
-      water: needs.water * quantity,
-      cup: needs.cup * quantity
+      beans: needs.beans * num,
+      water: needs.water * num,
+      cup: needs.cup * num
     };
-    return { made: `${quantity} ${product}`, consummed };
+    return { made: `${num} ${product}`, consummed };
   }
 }
