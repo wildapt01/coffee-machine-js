@@ -15,3 +15,5 @@ export class coffee {
     return { made: `${num} ${product}`, consummed };
   }
 }
+
+export class onOff {}

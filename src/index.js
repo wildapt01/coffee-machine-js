@@ -13,18 +13,26 @@ function order() {
 
 const displayInventory = () => {
   const inventory = { beans: 200, water: 300, milk: 100, cup: 50 };
-
+  const till = 50;
   for (const item in inventory) {
     const val = inventory[item];
     const newLine = document.createElement("p");
     const lineContent = document.createTextNode(` - ${val} ${item}`);
     newLine.appendChild(lineContent);
-    document.querySelector(".right-side").append(newLine);
+    document.querySelector("#inventory").append(newLine);
   }
+  const moneyDisplay = document.createElement("p");
+  const moneyContent = document.createTextNode(`$ ${till}`);
+  moneyDisplay.appendChild(moneyContent);
+  document.querySelector("#money").append(moneyDisplay);
 };
 
 //* Actions
 //* =======================
+// Turning the machine ON or OFF
+document.querySelector("#onOff").addEventListener("click", () => {
+  document.querySelector(".right-side").classList.toggle("invisible");
+});
 // Making one coffee
 document.querySelector("#makeCoffee").addEventListener("click", order);
 // Displaying the inventory

@@ -24,7 +24,10 @@ body {
   margin: 0.8em;
   height: fit-content;
 }
-
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
 .controls button {
   color: antiquewhite;
   background-color: darkblue;
@@ -44,7 +47,9 @@ body {
   align-items: stretch;
   justify-content: space-between;
 }
-
+.invisible {
+  display: none;
+}
 .screen-view {
   color: chartreuse;
 }
