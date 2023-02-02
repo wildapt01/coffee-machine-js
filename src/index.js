@@ -1,4 +1,4 @@
-import { coffee } from "./classes.js";
+import { coffee, onOff } from "./classes.js";
 
 function order() {
   const output = document.querySelector(".output");
@@ -32,6 +32,9 @@ const displayInventory = () => {
 // Turning the machine ON or OFF
 document.querySelector("#onOff").addEventListener("click", () => {
   document.querySelector(".right-side").classList.toggle("invisible");
+  const start = new onOff();
+  start.setInventory();
+  start.getInventory();
 });
 // Making one coffee
 document.querySelector("#makeCoffee").addEventListener("click", order);
