@@ -15,6 +15,7 @@ function order() {
 //* =======================
 // Turning the machine ON or OFF
 document.querySelector("#onOff").addEventListener("click", () => {
+  document.querySelector("#makeCoffee").removeEventListener("click", order);
   document.querySelector(".right-side").classList.toggle("invisible");
   const start = new onOff();
   // Setting initial inventory in session storage
@@ -22,6 +23,6 @@ document.querySelector("#onOff").addEventListener("click", () => {
   start.getInventory();
   start.clearDisplay();
   start.displayInventory();
+  // Making one coffee
+  document.querySelector("#makeCoffee").addEventListener("click", order);
 });
-// Making one coffee
-document.querySelector("#makeCoffee").addEventListener("click", order);

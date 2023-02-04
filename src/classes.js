@@ -20,7 +20,6 @@ export class onOff {
   initialInventory = { beans: 201, water: 300, milk: 100, cup: 50, till: 50 };
 
   setInventory(obj = this.initialInventory) {
-    // Clearing session storage if it contains a "inventory" object
     sessionStorage.clear();
     sessionStorage.setItem("inventory", JSON.stringify(obj));
   }

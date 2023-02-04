@@ -50,6 +50,9 @@ body {
 .invisible {
   display: none;
 }
+.red-text {
+  color: lightcoral;
+}
 .screen-view {
   color: chartreuse;
 }
