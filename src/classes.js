@@ -3,7 +3,6 @@ export class coffee {
     this.quantity = quantity;
   }
 
-  // Methods
   makeCoffee(num) {
     const needs = { beans: 20, water: 15, cup: 1 };
     const product = num > 1 ? "coffees" : "coffee";
@@ -17,7 +16,7 @@ export class coffee {
 }
 
 export class onOff {
-  initialInventory = { beans: 201, water: 300, milk: 100, cup: 50, till: 50 };
+  initialInventory = { beans: 200, water: 300, milk: 100, cup: 50, till: 0 };
 
   setInventory(obj = this.initialInventory) {
     sessionStorage.clear();
@@ -59,5 +58,11 @@ export class onOff {
     const moneyContent = document.createTextNode(`$ ${till}`);
     moneyDisplay.appendChild(moneyContent);
     document.querySelector("#money").append(moneyDisplay);
+  }
+}
+
+export class makeSelection {
+  constructor(type) {
+    this.type = type;
   }
 }
