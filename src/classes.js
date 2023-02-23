@@ -16,7 +16,7 @@ export class coffee {
 }
 
 export class onOff {
-  initialInventory = { beans: 200, water: 300, milk: 100, cup: 50, till: 0 };
+  initialInventory = { beans: 200, water: 5, milk: 100, cup: 50, till: 0 };
 
   setInventory(obj = this.initialInventory) {
     sessionStorage.clear();
@@ -46,14 +46,7 @@ export class onOff {
   displayInventory() {
     const inventory = this.getInventory();
     const { till } = inventory;
-    for (const item of Object.keys(inventory)) {
-      if (item === "till") continue;
-      const val = inventory[item];
-      const newLine = document.createElement("p");
-      const lineContent = document.createTextNode(` - ${val} ${item}`);
-      newLine.appendChild(lineContent);
-      document.querySelector("#inventory").append(newLine);
-    }
+    const
     const moneyDisplay = document.createElement("p");
     const moneyContent = document.createTextNode(`$ ${till}`);
     moneyDisplay.appendChild(moneyContent);
@@ -61,8 +54,28 @@ export class onOff {
   }
 }
 
-export class makeSelection {
+export class selectMake {
   constructor(type) {
     this.type = type;
   }
+  recipes = {
+    regular: { beans: 20, water: 15, cup: 1, cost: 2 },
+    espresso: { beans: 25, water: 8, cup: 1, cost: 3 },
+    cappuccino: { beans: 20, water: 10, milk: 5, cup: 1, cost: 4 }
+  };
+
+  //Methods
+  checkInventory = (inventory) => {
+    const selected = this.recipes[this.type];
+    const itemsTooLow = Object.keys(selected)
+      .filter((item) => item !== "cost")
+      .map((item) => {
+        return inventory[item] < selected[item] ? item : "";
+      });
+    // Flag true if at least 1 item is  too low in current inventory
+    const needFlag = itemsTooLow.some((item) => item);
+    return [needFlag, itemsTooLow, selected];
+  };
+
+  displayNeed = (item) => {};
 }

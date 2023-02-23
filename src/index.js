@@ -1,4 +1,4 @@
-import { coffee, onOff } from "./classes.js";
+import { coffee, onOff, selectMake } from "./classes.js";
 
 function order() {
   const output = document.querySelector(".output");
@@ -27,17 +27,17 @@ document.querySelector("#onOff").addEventListener("click", () => {
   document.querySelector("#makeCoffee").addEventListener("click", order);
 });
 
-document
-  .querySelectorAll("#regular")
-  .addEventListener("click", function (evnt) {
-    evnt.preventDefault();
-    const recipes = {
-      regular: { beans: 20, water: 15, cup: 1, cost: 2 },
-      espresso: { beans: 25, water: 8, cup: 1, cost: 3 },
-      cappuccino: { beans: 20, water: 15, milk: 5, cup: 1, cost: 4 }
-    };
-    //TODO Check inventory. If 1 item is too low, send message to display and keep makeCoffee button red.
-    //TODO Add interface to replenish inventory, then authorize selection to be made.
+document.querySelector("#regular").addEventListener("click", function (evnt) {
+  evnt.preventDefault();
 
-    document.querySelector("#makeCoffee");
-  });
+  //TODO Check inventory. If 1 item is too low, send message to display and keep makeCoffee button red.
+  const selectedType = "regular";
+  const newOrder = new selectMake(selectedType);
+  const inventoryCheck = newOrder.checkInventory(
+    JSON.parse(sessionStorage.getItem("inventory"))
+  );
+  console.log("inventoryCheck :>> ", inventoryCheck);
+  //TODO Add interface to replenish inventory, then authorize selection to be made.
+
+  // document.querySelector("#makeCoffee");
+});
