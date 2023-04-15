@@ -16,7 +16,7 @@ export class coffee {
 }
 
 export class onOff {
-  initialInventory = { beans: 200, water: 5, milk: 100, cups: 50, till: 0 };
+  initialInventory = { beans: 200, water: 100, milk: 50, cups: 20, till: 0 };
 
   setInventory(obj = this.initialInventory) {
     sessionStorage.clear();
