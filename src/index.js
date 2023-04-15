@@ -37,6 +37,7 @@ document.querySelector("#regular").addEventListener("click", function (evnt) {
     JSON.parse(sessionStorage.getItem("inventory"))
   );
   console.log("inventoryCheck :>> ", inventoryCheck);
+
   //TODO Add interface to replenish inventory, then authorize selection to be made.
 
   // document.querySelector("#makeCoffee");
