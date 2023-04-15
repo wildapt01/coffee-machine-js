@@ -51,7 +51,7 @@ export class onOff {
         const moneyDisplay = document.createElement("p");
         const moneyValue = document.createTextNode(`$ ${value}`);
         moneyDisplay.appendChild(moneyValue);
-        document.querySelector("#money").append(moneyDisplay);
+        document.querySelector("#money").appendChild(moneyDisplay);
       } else {
         const itemDisplay = document.createElement("p");
         const itemValue = document.createTextNode(`${key}: ${value}`);
