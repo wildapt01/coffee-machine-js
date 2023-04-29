@@ -72,7 +72,6 @@ export class selectMake {
     cappuccino: { beans: 20, water: 10, milk: 5, cup: 1, cost: 4 }
   };
 
-  //Methods
   checkInventory = (inventory) => {
     const selected = this.recipes[this.type];
     const itemsTooLow = Object.keys(selected)
