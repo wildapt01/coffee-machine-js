@@ -17,12 +17,19 @@ function order() {
 document.querySelector("#onOff").addEventListener("click", () => {
   document.querySelector("#makeCoffee").removeEventListener("click", order);
   document.querySelector(".right-side").classList.toggle("invisible");
+  const coffeeButtons = document.querySelectorAll(".coffee-buttons > button");
+  for (const element of coffeeButtons) {
+    element.style.color === "darkgrey" || !element.style.color
+      ? (element.style.color = "antiquewhite")
+      : (element.style.color = "darkgrey");
+  }
   const start = new onOff();
   // Setting initial inventory in session storage
   start.setInventory();
   start.getInventory();
   start.clearDisplay();
   start.displayInventory();
+
   // Making one coffee
   document.querySelector("#makeCoffee").addEventListener("click", order);
 });

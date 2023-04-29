@@ -79,7 +79,7 @@ export class selectMake {
       .map((item) => {
         return inventory[item] < selected[item] ? item : "";
       });
-    // Flag true if at least 1 item is  too low in current inventory
+    // needFlag is true if at least 1 item is  too low in current inventory
     const needFlag = itemsTooLow.some((item) => item);
     return [needFlag, itemsTooLow, selected];
   };

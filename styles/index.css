@@ -29,14 +29,18 @@ body {
   justify-content: space-between;
 }
 .controls button {
-  color: antiquewhite;
   background-color: darkblue;
   border-radius: 0.8em;
   margin: 0.5em;
   padding: 0.5em;
   font-weight: 600;
 }
-
+.coffee-buttons > button {
+  color: darkgrey;
+}
+.white-text {
+  color: antiquewhite;
+}
 .screen-view {
   height: 45vh;
   width: 45vw;
