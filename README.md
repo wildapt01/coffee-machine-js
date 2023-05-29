@@ -23,3 +23,27 @@ This machine uses regular ingredients — coffee, water, milk, and plastic cups.
 - HTML
 - CSS
 - JavaScript (OOP)
+
+## Dev notes
+
+Process to turn on or off
+
+- [ ] Click on the On/Off button
+- [ ] On/Off button text color switches to green from red
+- [ ] Other buttons background switches to blue from dark gray
+- [ ] The inventory is created in session storage with preset values for ingredients and 0 for the till
+- [ ] The inventory is displayed in right side inventory window
+- [ ] All display operations have a 0.25 delay
+
+Process to make a coffee
+
+- [ ] Select the coffee type by clicking on the relevant button
+- [ ] The coffee price is added to the till
+- [ ] The inventory is checked for missing ingredients
+- [ ] The left display window shows how many coffees can be brewed
+- [ ] If one or several ingredients, a message appears: "Not enough {INGREDIENT} to brew your selection!"
+- [ ] The button "REFILl" appears in the same window. Inventory is updated with initial value for this ingredient(s)
+- [ ] The {SELECTED COFFEE} button button is dark grey. The machine waits for refill or another selection
+- [ ] After the refill, the display is updated. Machine waiting for selection
+- [ ] The left display window shows the message: "Press Make Coffee"
+- [ ] After a 1s delay the message "Your {SELECTED COFFEE} is ready" is displayed in the bottom display window
