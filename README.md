@@ -28,11 +28,11 @@ This machine uses regular ingredients — coffee, water, milk, and plastic cups.
 
 Process to turn on or off
 
-- [ ] Click on the On/Off button
+- [x] Click on the On/Off button
 - [ ] On/Off button text color switches to green from red
 - [ ] Other buttons background switches to blue from dark gray
-- [ ] The inventory is created in session storage with preset values for ingredients and 0 for the till
-- [ ] The inventory is displayed in right side inventory window
+- [x] The inventory is created in session storage with preset values for ingredients and 0 for the till
+- [x] The inventory is displayed in right side inventory window
 - [ ] All display operations have a 0.25 delay
 
 Process to make a coffee
