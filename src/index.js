@@ -15,13 +15,34 @@ function order() {
 //* =======================
 // Turning the machine ON or OFF
 document.querySelector("#onOff").addEventListener("click", () => {
+  const coffeeButtons = document.querySelectorAll(".coffee-buttons > button");
+  const controller = new AbortController();
+  // Just for test
+  const showID = (buttonClicked) => {
+    console.log("buttonID :>> ", buttonClicked.id);
+  };
+
+  // Listeners clean up
+  for (const element of coffeeButtons) {
+    if (element.style.color === "antiquewhite") {
+      element.removeEventListener("click", function () {});
+    }
+  }
+
   document.querySelector("#makeCoffee").removeEventListener("click", order);
   document.querySelector(".right-side").classList.toggle("invisible");
-  const coffeeButtons = document.querySelectorAll(".coffee-buttons > button");
   for (const element of coffeeButtons) {
     element.style.color === "darkgrey" || !element.style.color
       ? (element.style.color = "antiquewhite")
       : (element.style.color = "darkgrey");
+    element.addEventListener("click", function () {
+      if (element.style.color === "antiquewhite") {
+        showID(this);
+        element.removeEventListener("click", function () {});
+      } else {
+        controller.abort();
+      }
+    });
   }
   const start = new onOff();
   // Setting initial inventory in session storage
@@ -31,21 +52,5 @@ document.querySelector("#onOff").addEventListener("click", () => {
   start.displayInventory();
 
   // Making one coffee
-  document.querySelector("#makeCoffee").addEventListener("click", order);
-});
-
-document.querySelector("#regular").addEventListener("click", function (evnt) {
-  evnt.preventDefault();
-
-  //TODO Check inventory. If 1 item is too low, send message to display and keep makeCoffee button red.
-  const selectedType = "regular";
-  const newOrder = new selectMake(selectedType);
-  const inventoryCheck = newOrder.checkInventory(
-    JSON.parse(sessionStorage.getItem("inventory"))
-  );
-  console.log("inventoryCheck :>> ", inventoryCheck);
-
-  //TODO Add interface to replenish inventory, then authorize selection to be made.
-
-  // document.querySelector("#makeCoffee");
+  //   document.querySelector("#makeCoffee").addEventListener("click", order);
 });
