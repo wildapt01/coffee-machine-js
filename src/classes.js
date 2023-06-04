@@ -62,9 +62,9 @@ export class onOff {
   }
 }
 
-export class selectMake {
-  constructor(type) {
-    this.type = type;
+export class brewing {
+  constructor(coffeeType) {
+    this.coffeeType = coffeeType;
   }
   recipes = {
     regular: { beans: 20, water: 15, cup: 1, cost: 2 },
@@ -72,8 +72,8 @@ export class selectMake {
     cappuccino: { beans: 20, water: 10, milk: 5, cup: 1, cost: 4 }
   };
 
-  checkInventory = (inventory) => {
-    const selected = this.recipes[this.type];
+  checkInventory(inventory) {
+    const selected = this.recipes[this.coffeeType];
     const itemsTooLow = Object.keys(selected)
       .filter((item) => item !== "cost")
       .map((item) => {
@@ -82,7 +82,10 @@ export class selectMake {
     // needFlag is true if at least 1 item is  too low in current inventory
     const needFlag = itemsTooLow.some((item) => item);
     return [needFlag, itemsTooLow, selected];
-  };
+  }
 
-  displayNeed = (item) => {};
+  textColorToggle(element) {
+    element.classList.toggle("inactive");
+    element.classList.toggle("active");
+  }
 }

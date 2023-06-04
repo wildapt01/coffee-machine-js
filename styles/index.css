@@ -45,6 +45,10 @@ body {
 .inactive {
   color: darkgray;
 }
+.selected {
+  outline: 0.2rem solid darkred;
+  outline-offset: 0.1rem;
+}
 .screen-view {
   height: 45vh;
   width: 45vw;
