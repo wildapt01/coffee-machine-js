@@ -1,20 +1,7 @@
 import { onOff, brewing } from "./classes.js";
 
-function order() {
-  const output = document.querySelector(".output");
-  // Removing output content
-  output.innerHTML = "";
-  // Creating the new coffee message
-  const newOrder = new coffee();
-  console.log("done coffee");
-  const { made } = newOrder.makeCoffee(1);
-  output.innerHTML = `${made} is waiting for you!`;
-}
-
 function handleClickSelectors(evnt) {
-  const selectedCoffee = evnt.target.id;
   const brewButton = document.querySelector("#makeCoffee");
-  console.log("Clicked! ", selectedCoffee);
   const newCoffee = new brewing();
   newCoffee.textColorToggle(brewButton);
   brewButton.removeAttribute("disabled");
@@ -26,19 +13,24 @@ function handleClickBrewing(evnt) {
   const coffeeButtons = document.querySelectorAll("#coffeeSelectors > button");
   let selectedCoffee = "";
   const newCoffee = new brewing();
+  const inventoryUpdate = new onOff();
+  // Brewing selected coffee
   for (const button of coffeeButtons) {
     if (button.classList.contains("selected")) {
       selectedCoffee = button.id;
     }
   }
-  console.log("selectedCoffee :>> ", selectedCoffee);
   setTimeout(() => {
     document.getElementById(selectedCoffee).classList.remove("selected");
     evnt.target.setAttribute("disabled", "true");
     newCoffee.textColorToggle(evnt.target);
   }, 2000);
-
   newCoffee.output(selectedCoffee);
+  const ingredients = newCoffee.ingredients(selectedCoffee);
+  const currentInventory = inventoryUpdate.getInventory();
+  const newInventory = newCoffee.newInventory(currentInventory, ingredients);
+  inventoryUpdate.setInventory(newInventory);
+  inventoryUpdate.displayInventory();
 }
 //* Actions
 //* =======================
@@ -56,6 +48,7 @@ document.querySelector("#onOff").addEventListener("click", () => {
     container.addEventListener("click", handleClickSelectors);
   } else {
     container.removeEventListener("click", handleClickSelectors);
+    document.querySelector(".output").innerText = "";
   }
 
   document.querySelector(".right-side").classList.toggle("invisible");
