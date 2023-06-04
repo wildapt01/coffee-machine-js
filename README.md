@@ -12,7 +12,7 @@ This machine uses regular ingredients — coffee, water, milk, and plastic cups.
 
 - [x] It makes a coffee.
 - [x] The machine has some styling.
-- [ ] It evaluates how many ingredients it takes to make a coffee.
+- [x] It evaluates how many ingredients it takes to make a coffee.
 - [ ] It calculates how many cups it can make based on the number of ingredients.
 - [ ] It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
 - [x] It displays how many supplies it has on the screen.
@@ -30,19 +30,18 @@ Process to turn on or off
 
 - [x] Click on the On/Off button
 - [ ] On/Off button text color switches to green from red
-- [ ] Coffee selection buttons get an outline when selected
+- [x] Coffee selection buttons get an outline when selected
 - [x] The inventory is created in session storage with preset values for ingredients and 0 for the till
 - [x] The inventory is displayed in right side inventory window
 
 Process to make a coffee
 
 - [x] Select the coffee type by clicking on the relevant button
-- [ ] The coffee price is added to the till
+- [x] The coffee price is added to the till
 - [ ] The inventory is checked for missing ingredients
 - [ ] The left display window shows how many coffees can be brewed
 - [ ] If one or several ingredients, a message appears: "Not enough {INGREDIENT} to brew your selection!"
 - [ ] The button "REFILl" appears in the same window. Inventory is updated with initial value for this ingredient(s)
 - [ ] The {SELECTED COFFEE} button button is dark grey. The machine waits for refill or another selection
 - [ ] After the refill, the display is updated. Machine waiting for selection
-- [ ] The left display window shows the message: "Press Make Coffee"
 - [x] After a 2s delay the message "Your {SELECTED COFFEE} is ready" is displayed in the bottom display window
