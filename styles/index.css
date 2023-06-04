@@ -35,12 +35,15 @@ body {
   padding: 0.5em;
   font-weight: 600;
 }
-.coffee-buttons > button,
+/* .coffee-buttons > button,
 #makeCoffee {
   color: darkgrey;
-}
-.white-text {
+} */
+.active {
   color: antiquewhite;
+}
+.inactive {
+  color: darkgray;
 }
 .screen-view {
   height: 45vh;
