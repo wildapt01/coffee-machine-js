@@ -1,4 +1,4 @@
-import { coffee, onOff, brewing } from "./classes.js";
+import { onOff, brewing } from "./classes.js";
 
 function order() {
   const output = document.querySelector(".output");
@@ -19,17 +19,26 @@ function handleClickSelectors(evnt) {
   newCoffee.textColorToggle(brewButton);
   brewButton.removeAttribute("disabled");
   evnt.target.classList.toggle("selected");
+  document.querySelector(".output").innerText = "";
 }
 
 function handleClickBrewing(evnt) {
   const coffeeButtons = document.querySelectorAll("#coffeeSelectors > button");
   let selectedCoffee = "";
+  const newCoffee = new brewing();
   for (const button of coffeeButtons) {
     if (button.classList.contains("selected")) {
       selectedCoffee = button.id;
     }
   }
   console.log("selectedCoffee :>> ", selectedCoffee);
+  setTimeout(() => {
+    document.getElementById(selectedCoffee).classList.remove("selected");
+    evnt.target.setAttribute("disabled", "true");
+    newCoffee.textColorToggle(evnt.target);
+  }, 2000);
+
+  newCoffee.output(selectedCoffee);
 }
 //* Actions
 //* =======================

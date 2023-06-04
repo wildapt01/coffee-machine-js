@@ -1,20 +1,3 @@
-export class coffee {
-  constructor(quantity) {
-    this.quantity = quantity;
-  }
-
-  makeCoffee(num) {
-    const needs = { beans: 20, water: 15, cup: 1 };
-    const product = num > 1 ? "coffees" : "coffee";
-    const consummed = {
-      beans: needs.beans * num,
-      water: needs.water * num,
-      cup: needs.cup * num
-    };
-    return { made: `${num} ${product}`, consummed };
-  }
-}
-
 export class onOff {
   initialInventory = { beans: 200, water: 100, milk: 50, cups: 20, till: 0 };
 
@@ -87,5 +70,13 @@ export class brewing {
   textColorToggle(element) {
     element.classList.toggle("inactive");
     element.classList.toggle("active");
+  }
+
+  output(coffee) {
+    const message = `Your ${
+      coffee === "regular" ? "regular coffee" : coffee
+    } is ready!`;
+    document.querySelector(".output").innerText = "";
+    document.querySelector(".output").innerText = message;
   }
 }

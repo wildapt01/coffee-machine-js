@@ -30,14 +30,13 @@ Process to turn on or off
 
 - [x] Click on the On/Off button
 - [ ] On/Off button text color switches to green from red
-- [ ] Other buttons background switches to blue from dark gray
+- [ ] Coffee selection buttons get an outline when selected
 - [x] The inventory is created in session storage with preset values for ingredients and 0 for the till
 - [x] The inventory is displayed in right side inventory window
-- [ ] All display operations have a 0.25 delay
 
 Process to make a coffee
 
-- [ ] Select the coffee type by clicking on the relevant button
+- [x] Select the coffee type by clicking on the relevant button
 - [ ] The coffee price is added to the till
 - [ ] The inventory is checked for missing ingredients
 - [ ] The left display window shows how many coffees can be brewed
@@ -46,4 +45,4 @@ Process to make a coffee
 - [ ] The {SELECTED COFFEE} button button is dark grey. The machine waits for refill or another selection
 - [ ] After the refill, the display is updated. Machine waiting for selection
 - [ ] The left display window shows the message: "Press Make Coffee"
-- [ ] After a 1s delay the message "Your {SELECTED COFFEE} is ready" is displayed in the bottom display window
+- [x] After a 2s delay the message "Your {SELECTED COFFEE} is ready" is displayed in the bottom display window
