@@ -91,13 +91,13 @@ body {
 /* 27" monitor */
 @media screen and (width>=2200px) {
   body {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 /* 15" laptop */
 @media screen and (1590px<width<2200px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media screen and (width<1590px) {
