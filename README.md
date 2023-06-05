@@ -4,9 +4,9 @@ Coffee is certainely one of the few things that make the world go round, at leas
 
 ## Prompt
 
-What can be better than a cup of coffee during a break? Two cups. Press a couple of buttons on the machine, and, voilà, a burst of raw energy is in your hands. But first, we should teach the machine how to do it. In this project, you will work on a coffee machine simulator.
+What can be better than a cup of coffee during a break? Two cups. Press a couple of buttons on the machine, and, voilà, a burst of raw energy is in your hands. But first, we should teach the machine how to do it.This project is about creating a coffee machine simulator.
 
-This machine uses regular ingredients — coffee, water, milk, and plastic cups. Should it run out of something, it will show you a notification. Our device will serve espresso, cappuccino, and latte. And since nothing is for free, it will also charge coffee lovers for a cup.
+This machine uses regular ingredients — coffee, water, milk, and plastic cups. Should it run out of something, it will show you a notification. Our device will serve espresso, cappuccino and regular coffee. And since nothing is for free, it will also charge coffee lovers for a cup.
 
 ## Feature list
 
@@ -23,6 +23,14 @@ This machine uses regular ingredients — coffee, water, milk, and plastic cups.
 - HTML
 - CSS
 - JavaScript (OOP)
+
+## To start
+
+Deployed on [GitHub Pages](https://wildapt01.github.io/coffee-machine-js/)
+
+Local download: Clone this repo on a local machine and open `index.html` in a browser
+
+Development: Clone this repo on a local machine and run `package.json`
 
 ## Dev notes
 
@@ -41,7 +49,7 @@ Process to make a coffee
 - [ ] The inventory is checked for missing ingredients
 - [ ] The left display window shows how many coffees can be brewed
 - [ ] If one or several ingredients, a message appears: "Not enough {INGREDIENT} to brew your selection!"
-- [ ] The button "REFILl" appears in the same window. Inventory is updated with initial value for this ingredient(s)
+- [ ] The button "REFILL" appears in the same window. Inventory is updated with initial value for this ingredient(s)
 - [ ] The {SELECTED COFFEE} button button is dark grey. The machine waits for refill or another selection
 - [ ] After the refill, the display is updated. Machine waiting for selection
 - [x] After a 2s delay the message "Your {SELECTED COFFEE} is ready" is displayed in the bottom display window
