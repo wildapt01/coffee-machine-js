@@ -91,7 +91,7 @@ body {
 /* 27" monitor */
 @media screen and (width>=2200px) {
   body {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 /* 15" laptop */
