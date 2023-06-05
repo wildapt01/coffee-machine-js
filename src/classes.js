@@ -5,12 +5,10 @@ export class onOff {
     sessionStorage.clear();
     sessionStorage.setItem("inventory", JSON.stringify(obj));
   }
-
   getInventory() {
     const inventory = sessionStorage.getItem("inventory");
     return JSON.parse(inventory);
   }
-
   clearDisplay() {
     const inventoryItems = document.querySelectorAll("#inventory p");
     const moneyItems = document.querySelectorAll("#money p");
@@ -25,7 +23,6 @@ export class onOff {
       }
     }
   }
-
   displayInventory() {
     this.clearDisplay();
     const inventory = this.getInventory();
@@ -59,7 +56,6 @@ export class brewing {
     element.classList.toggle("inactive");
     element.classList.toggle("active");
   }
-
   output(coffee) {
     const message = `Your ${
       coffee === "regular" ? "regular coffee" : coffee
@@ -67,11 +63,9 @@ export class brewing {
     document.querySelector(".output").innerText = "";
     document.querySelector(".output").innerText = message;
   }
-
   ingredients(coffee) {
     return this.recipes[coffee];
   }
-
   newInventory(current, ingredients) {
     const newInventory = {};
     for (const key in current) {
