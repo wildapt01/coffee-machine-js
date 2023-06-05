@@ -23,10 +23,12 @@ body {
   border-radius: 0.5em;
   margin: 0.8em;
   height: fit-content;
+  font-size: 1.2em;
 }
 .controls {
   display: flex;
   justify-content: space-between;
+  max-height: 4em;
 }
 .controls button {
   background-color: darkblue;
@@ -34,11 +36,9 @@ body {
   margin: 0.5em;
   padding: 0.5em;
   font-weight: 600;
+  font-size: inherit;
+  width: 7em;
 }
-/* .coffee-buttons > button,
-#makeCoffee {
-  color: darkgrey;
-} */
 .active {
   color: antiquewhite;
 }
@@ -46,8 +46,8 @@ body {
   color: darkgray;
 }
 .selected {
-  outline: 0.2rem solid darkred;
-  outline-offset: 0.1rem;
+  outline: 0.4rem solid darkred;
+  outline-offset: 0.15rem;
 }
 .screen-view {
   height: 45vh;
@@ -69,16 +69,39 @@ body {
   color: chartreuse;
 }
 .output {
-  height: 3.5em;
+  height: 2em;
   color: #333;
   font-size: 1.5em;
   font-weight: 600;
   text-align: center;
-  padding-top: 1em;
+  padding: 0.5em 0;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .left-side {
   width: 65%;
 }
 .right-side {
   width: 30%;
+}
+
+/* Media queries
+ =========================== */
+/* 27" monitor */
+@media screen and (width>=2200px) {
+  body {
+    font-size: 24px;
+  }
+}
+/* 15" laptop */
+@media screen and (1590px<width<2200px) {
+  body {
+    font-size: 18px;
+  }
+}
+@media screen and (width<1590px) {
+  .controls button {
+    /* width: 6.5em; */
+    font-size: 0.75em;
+  }
 }
