@@ -26,6 +26,7 @@ function handleClickBrewing(evnt) {
     newCoffee.textColorToggle(evnt.target);
   }, 2000);
   newCoffee.output(selectedCoffee);
+  // Updating the inventory in Session Storage and right side display
   const ingredients = newCoffee.ingredients(selectedCoffee);
   const currentInventory = inventoryUpdate.getInventory();
   const newInventory = newCoffee.newInventory(currentInventory, ingredients);
