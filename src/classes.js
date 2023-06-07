@@ -80,3 +80,18 @@ export class brewing {
     return newInventory;
   }
 }
+
+export class display {
+  possibleCoffee() {
+    const start = new onOff();
+    const coffee = new brewing();
+    const currentInventory = start.getInventory();
+    const recipes = coffee.recipes;
+    const result = {};
+    for (const coffeeType in recipes) {
+      const recipe = recipes[coffeeType];
+    }
+
+    return result;
+  }
+}
