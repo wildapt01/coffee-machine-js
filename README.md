@@ -16,7 +16,6 @@ This machine uses regular ingredients — coffee, water, milk, and plastic cups.
 - [ ] It calculates how many cups it can make based on the number of ingredients.
 - [ ] It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
 - [x] It displays how many supplies it has on the screen.
-- [ ] Work on the main loop: now, the menu keeps updating until users choose to exit.
 
 ## Tech stack
 
