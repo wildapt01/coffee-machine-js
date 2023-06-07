@@ -29,8 +29,6 @@ Deployed on [GitHub Pages](https://wildapt01.github.io/coffee-machine-js/)
 
 Local download: Clone this repo on a local machine and open `index.html` in a browser
 
-Development: Clone this repo on a local machine and run `package.json`
-
 ## Dev notes
 
 Process to turn on or off
