@@ -22,7 +22,7 @@ body {
 .product {
   border: 0.25em solid rgb(69, 63, 63);
   border-radius: 0.5em;
-  margin: 0.8em;
+  margin: 0.5em;
   height: fit-content;
   font-size: 1.2em;
 }
@@ -86,7 +86,19 @@ body {
 .right-side {
   width: 30%;
 }
-
+.left-side,
+.left-side h3,
+.left-side p,
+.right-side,
+.right-side h3,
+.right-side p {
+  margin: 0.25em 0;
+}
+#coffeeYields,
+#inventory,
+#money {
+  padding-left: 0.8em;
+}
 /* Media queries
  =========================== */
 /* 27" monitor */
