@@ -1,4 +1,4 @@
-import { onOff, brewing } from "./classes.js";
+import { onOff, brewing, displayMessage } from "./classes.js";
 
 function handleClickSelectors(evnt) {
   const brewButton = document.querySelector("#makeCoffee");
@@ -32,6 +32,8 @@ function handleClickBrewing(evnt) {
   const newInventory = newCoffee.newInventory(currentInventory, ingredients);
   inventoryUpdate.setInventory(newInventory);
   inventoryUpdate.displayInventory();
+  const display = new displayMessage();
+  console.log("display.possibleCoffee() :>> ", display.possibleCoffees());
 }
 //* Actions
 //* =======================
@@ -60,6 +62,9 @@ document.querySelector("#onOff").addEventListener("click", () => {
   start.getInventory();
   start.clearDisplay();
   start.displayInventory();
+
+  const display = new displayMessage();
+  console.log("display.possibleCoffee() :>> ", display.possibleCoffees());
 });
 
 // Brewing the selected coffee

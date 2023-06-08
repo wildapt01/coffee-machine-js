@@ -81,17 +81,29 @@ export class brewing {
   }
 }
 
-export class display {
-  possibleCoffee() {
+export class displayMessage {
+  possibleCoffees() {
     const start = new onOff();
     const coffee = new brewing();
     const currentInventory = start.getInventory();
     const recipes = coffee.recipes;
     const result = {};
+    debugger;
     for (const coffeeType in recipes) {
       const recipe = recipes[coffeeType];
+      // Yield per ingredient quantities, per coffee type
+      const yieldList = [];
+      for (const item in recipe) {
+        // Excluding the till: not an ingredient!
+        if (item === "till") continue;
+        const needed = recipe[item];
+        const yields = Math.floor(currentInventory[item] / needed)
+          ? Math.floor(currentInventory[item] / needed)
+          : 0;
+        yieldList.push(yields);
+      }
+      result[coffeeType] = yieldList.sort((num1, num2) => num1 - num2)[0];
     }
-
     return result;
   }
 }
