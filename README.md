@@ -13,7 +13,7 @@ This machine uses regular ingredients — coffee, water, milk, and plastic cups.
 - [x] It makes a coffee.
 - [x] The machine has some styling.
 - [x] It evaluates how many ingredients it takes to make a coffee.
-- [ ] It calculates how many cups it can make based on the number of ingredients.
+- [x] It calculates how many cups it can make based on the number of ingredients.
 - [ ] It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
 - [x] It displays how many supplies it has on the screen.
 
@@ -44,7 +44,7 @@ Process to make a coffee
 - [x] Select the coffee type by clicking on the relevant button
 - [x] The coffee price is added to the till
 - [ ] The inventory is checked for missing ingredients
-- [ ] The left display window shows how many coffees can be brewed
+- [x] The left display window shows how many coffees can be brewed
 - [ ] If one or several ingredients, a message appears: "Not enough {INGREDIENT} to brew your selection!"
 - [ ] The button "REFILL" appears in the same window. Inventory is updated with initial value for this ingredient(s)
 - [ ] The {SELECTED COFFEE} button button is dark grey. The machine waits for refill or another selection
