@@ -81,6 +81,7 @@ body {
 }
 .left-side {
   width: 65%;
+  padding-left: 1em;
 }
 .right-side {
   width: 30%;

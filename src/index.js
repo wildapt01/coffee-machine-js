@@ -14,6 +14,7 @@ function handleClickBrewing(evnt) {
   let selectedCoffee = "";
   const newCoffee = new brewing();
   const inventoryUpdate = new onOff();
+  const leftDisplay = new displayMessage();
   // Brewing selected coffee
   for (const button of coffeeButtons) {
     if (button.classList.contains("selected")) {
@@ -24,16 +25,15 @@ function handleClickBrewing(evnt) {
     document.getElementById(selectedCoffee).classList.remove("selected");
     evnt.target.setAttribute("disabled", "true");
     newCoffee.textColorToggle(evnt.target);
-  }, 2000);
-  newCoffee.output(selectedCoffee);
-  // Updating the inventory in Session Storage and right side display
+    newCoffee.output(selectedCoffee);
+  }, 500);
+  // Updating the inventory in Session Storage and left/right displays
   const ingredients = newCoffee.ingredients(selectedCoffee);
   const currentInventory = inventoryUpdate.getInventory();
   const newInventory = newCoffee.newInventory(currentInventory, ingredients);
   inventoryUpdate.setInventory(newInventory);
   inventoryUpdate.displayInventory();
-  const display = new displayMessage();
-  console.log("display.possibleCoffee() :>> ", display.possibleCoffees());
+  leftDisplay.displayYields();
 }
 //* Actions
 //* =======================
@@ -41,7 +41,6 @@ function handleClickBrewing(evnt) {
 document.querySelector("#onOff").addEventListener("click", () => {
   const coffeeButtons = document.querySelectorAll("#coffeeSelectors > button");
   const container = document.getElementById("coffeeSelectors");
-
   container.removeEventListener("click", handleClickSelectors);
   for (const element of coffeeButtons) {
     element.classList.toggle("inactive");
@@ -53,18 +52,18 @@ document.querySelector("#onOff").addEventListener("click", () => {
     container.removeEventListener("click", handleClickSelectors);
     document.querySelector(".output").innerText = "";
   }
-
   document.querySelector(".right-side").classList.toggle("invisible");
-
+  document.querySelector(".left-side").classList.toggle("invisible");
   const start = new onOff();
-  // Setting initial inventory in session storage
+  const leftDisplay = new displayMessage();
+  // Setting initial inventory in session storage, displaying inventory and
+  // yields
   start.setInventory();
   start.getInventory();
   start.clearDisplay();
   start.displayInventory();
 
-  const display = new displayMessage();
-  console.log("display.possibleCoffee() :>> ", display.possibleCoffees());
+  leftDisplay.displayYields();
 });
 
 // Brewing the selected coffee

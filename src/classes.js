@@ -88,10 +88,9 @@ export class displayMessage {
     const currentInventory = start.getInventory();
     const recipes = coffee.recipes;
     const result = {};
-    debugger;
     for (const coffeeType in recipes) {
       const recipe = recipes[coffeeType];
-      // Yield per ingredient quantities, per coffee type
+      // Yield per ingredient quantities in inventory, per coffee type
       const yieldList = [];
       for (const item in recipe) {
         // Excluding the till: not an ingredient!
@@ -102,8 +101,28 @@ export class displayMessage {
           : 0;
         yieldList.push(yields);
       }
+      // Isolating the lowest yield for the coffee type
       result[coffeeType] = yieldList.sort((num1, num2) => num1 - num2)[0];
     }
     return result;
+  }
+
+  clearDisplayYields() {
+    const yieldsItems = document.querySelectorAll("#coffeeYields p");
+    if (yieldsItems) {
+      for (const element of yieldsItems) {
+        element.remove();
+      }
+    }
+  }
+  displayYields() {
+    this.clearDisplayYields();
+    const yieldsObj = this.possibleCoffees();
+    for (const [key, value] of Object.entries(yieldsObj)) {
+      const itemDisplay = document.createElement("p");
+      const itemValue = document.createTextNode(`${key}: ${value}`);
+      itemDisplay.appendChild(itemValue);
+      document.querySelector("#coffeeYields").append(itemDisplay);
+    }
   }
 }
