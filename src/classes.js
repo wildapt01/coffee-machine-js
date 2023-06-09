@@ -106,7 +106,6 @@ export class displayMessage {
     }
     return result;
   }
-
   clearDisplayYields() {
     const yieldsItems = document.querySelectorAll("#coffeeYields p");
     if (yieldsItems) {
