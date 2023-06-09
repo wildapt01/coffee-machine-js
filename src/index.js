@@ -11,6 +11,7 @@ function handleClickSelectors(evnt) {
 
 function handleClickBrewing(evnt) {
   const coffeeButtons = document.querySelectorAll("#coffeeSelectors > button");
+  const collectButton = document.querySelector("#collect");
   let selectedCoffee = "";
   const newCoffee = new brewing();
   const inventoryUpdate = new onOff();
@@ -27,6 +28,11 @@ function handleClickBrewing(evnt) {
     newCoffee.textColorToggle(evnt.target);
     newCoffee.output(selectedCoffee);
   }, 500);
+  // Enabling collect button
+  if (collectButton.hasAttribute("disabled")) {
+    collectButton.removeAttribute("disabled");
+    newCoffee.textColorToggle(collectButton);
+  }
   // Updating the inventory in Session Storage and left/right displays
   const ingredients = newCoffee.ingredients(selectedCoffee);
   const currentInventory = inventoryUpdate.getInventory();
@@ -34,6 +40,18 @@ function handleClickBrewing(evnt) {
   inventoryUpdate.setInventory(newInventory);
   inventoryUpdate.displayInventory();
   leftDisplay.displayYields();
+}
+
+function handleClickCollect() {
+  const actions = new onOff();
+  const resetButton = new brewing();
+  const collectButton = document.querySelector("#collect");
+  const inventory = actions.getInventory();
+  const newInventory = { ...inventory, till: 0 };
+  actions.setInventory(newInventory);
+  actions.displayInventory();
+  resetButton.textColorToggle(collectButton);
+  collectButton.setAttribute("disabled", "true");
 }
 //* Actions
 //* =======================
@@ -70,3 +88,7 @@ document.querySelector("#onOff").addEventListener("click", () => {
 document
   .querySelector("#makeCoffee")
   .addEventListener("click", handleClickBrewing);
+// Collecting the money in Till and resetting Till to zero
+document
+  .querySelector("#collect")
+  .addEventListener("click", handleClickCollect);
