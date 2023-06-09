@@ -96,12 +96,16 @@ body {
 }
 #coffeeYields,
 #inventory,
-#money {
+#money,
+#alertMessage {
   padding-left: 0.8em;
 }
 .maintenance {
   display: flex;
   justify-content: space-evenly;
+}
+#alerts {
+  margin-top: 1em;
 }
 /* Media queries
  =========================== */

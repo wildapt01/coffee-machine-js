@@ -45,6 +45,7 @@ function handleClickBrewing(evnt) {
 function handleClickCollect() {
   const actions = new onOff();
   const resetButton = new brewing();
+  const alertDisplay = new displayMessage();
   const collectButton = document.querySelector("#collect");
   const inventory = actions.getInventory();
   const newInventory = { ...inventory, till: 0 };
@@ -52,6 +53,9 @@ function handleClickCollect() {
   actions.displayInventory();
   resetButton.textColorToggle(collectButton);
   collectButton.setAttribute("disabled", "true");
+  const alertSection = document.querySelector("#alerts");
+  alertSection.classList.toggle("invisible");
+  alertDisplay.displayAlert("Till collected!");
 }
 //* Actions
 //* =======================
@@ -73,7 +77,7 @@ document.querySelector("#onOff").addEventListener("click", () => {
   document.querySelector(".right-side").classList.toggle("invisible");
   document.querySelector(".left-side").classList.toggle("invisible");
   const start = new onOff();
-  const leftDisplay = new displayMessage();
+  const displaying = new displayMessage();
   // Setting initial inventory in session storage, displaying inventory and
   // yields
   start.setInventory();
@@ -81,7 +85,7 @@ document.querySelector("#onOff").addEventListener("click", () => {
   start.clearDisplay();
   start.displayInventory();
 
-  leftDisplay.displayYields();
+  displaying.displayYields();
 });
 
 // Brewing the selected coffee

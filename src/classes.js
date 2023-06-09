@@ -108,7 +108,7 @@ export class displayMessage {
   }
   clearDisplayYields() {
     const yieldsItems = document.querySelectorAll("#coffeeYields p");
-    if (yieldsItems) {
+    if (yieldsItems.length > 0) {
       for (const element of yieldsItems) {
         element.remove();
       }
@@ -123,5 +123,20 @@ export class displayMessage {
       itemDisplay.appendChild(itemValue);
       document.querySelector("#coffeeYields").append(itemDisplay);
     }
+  }
+  clearDisplayAlert() {
+    const yieldsItems = document.querySelectorAll("alertMessage p");
+    if (yieldsItems.length > 0) {
+      for (const element of yieldsItems) {
+        element.remove();
+      }
+    }
+  }
+  displayAlert(content) {
+    this.clearDisplayAlert();
+    const itemDisplay = document.createElement("p");
+    const itemValue = document.createTextNode(content);
+    itemDisplay.appendChild(itemValue);
+    document.querySelector("#alertMessage").append(itemDisplay);
   }
 }
