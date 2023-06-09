@@ -56,6 +56,9 @@ function handleClickCollect() {
   const alertSection = document.querySelector("#alerts");
   alertSection.classList.toggle("invisible");
   alertDisplay.displayAlert("Till collected!");
+  setTimeout(() => {
+    alertSection.classList.toggle("invisible");
+  }, 1000);
 }
 //* Actions
 //* =======================

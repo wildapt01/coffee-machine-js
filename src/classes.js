@@ -125,7 +125,7 @@ export class displayMessage {
     }
   }
   clearDisplayAlert() {
-    const yieldsItems = document.querySelectorAll("alertMessage p");
+    const yieldsItems = document.querySelectorAll("#alertMessage p");
     if (yieldsItems.length > 0) {
       for (const element of yieldsItems) {
         element.remove();
