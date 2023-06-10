@@ -3,6 +3,14 @@ import { onOff, brewing, displayMessage } from "./classes.js";
 function handleClickSelectors(evnt) {
   const brewButton = document.querySelector("#makeCoffee");
   const newCoffee = new brewing();
+  const coffeeButtons = document.querySelector("#coffeeSelectors").children;
+  console.log("coffeeButtons :>> ", coffeeButtons);
+  // coffeeButtons.children.classList.remove("selected");
+  for (const button of coffeeButtons) {
+    if (button.classList.contains("selected")) {
+      button.classList.remove("selected");
+    }
+  }
   newCoffee.textColorToggle(brewButton);
   brewButton.removeAttribute("disabled");
   evnt.target.classList.toggle("selected");
@@ -58,7 +66,20 @@ function handleClickCollect() {
   alertDisplay.displayAlert("Till collected!");
   setTimeout(() => {
     alertSection.classList.toggle("invisible");
-  }, 1000);
+  }, 1500);
+}
+
+function handleClickRefill(evnt) {
+  const start = new onOff();
+  const fullInventory = start.initialInventory;
+  const currentInventory = start.getInventory();
+  const currentTill = currentInventory.till;
+  const newInventory = { ...fullInventory, till: currentTill };
+  start.setInventory(newInventory);
+  start.displayInventory();
+  evnt.target.classList.toggle("inactive");
+  evnt.target.classList.toggle("active");
+  evnt.target.setAttribute("disabled", "true");
 }
 //* Actions
 //* =======================
@@ -99,3 +120,5 @@ document
 document
   .querySelector("#collect")
   .addEventListener("click", handleClickCollect);
+// Refilling the inventory
+document.querySelector("#refill").addEventListener("click", handleClickRefill);
