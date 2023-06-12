@@ -23,7 +23,6 @@ export class onOff {
       }
     }
   }
-
   displayInventory() {
     this.clearDisplay();
     const inventory = this.getInventory();
