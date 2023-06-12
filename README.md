@@ -43,11 +43,11 @@ Process to make a coffee
 
 - [x] Select the coffee type by clicking on the relevant button
 - [x] The coffee price is added to the till
-- [ ] The inventory is checked for missing ingredients
+- [x] The inventory is checked for missing ingredients
 - [x] The left display window shows how many coffees can be brewed
-- [ ] The left display window shows alert messages for money collection and missing ingredients
-- [ ] If one or several ingredients are missing, a message appears: "Not enough {INGREDIENT} to brew your selection!"
-- [ ] The button "REFILL" resets the inventory to initial values except till
-- [ ] The {SELECTED COFFEE} button text is dark grey, disabled/inactive. The machine waits for refill or another selection
-- [ ] After the refill, the display is updated. Machine waiting for selection
+- [x] The left display window shows alert messages for money collection and missing ingredients
+- [x] If one or several ingredients are missing, a message appears: "Not enough {INGREDIENT} to brew a {COFFEE TYPE}!"
+- [x] The button "REFILL" resets the inventory to initial values except till
+- [x] The {SELECTED COFFEE} button text is dark grey, disabled/inactive. The machine waits for refill or another selection
+- [x] After the refill, the display is updated. Machine waiting for selection
 - [x] The message "Your {SELECTED COFFEE} is ready" is displayed in the bottom display window
