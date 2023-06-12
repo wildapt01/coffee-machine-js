@@ -1,5 +1,5 @@
 export class onOff {
-  initialInventory = { beans: 45, water: 100, milk: 50, cups: 20, till: 0 };
+  initialInventory = { beans: 150, water: 100, milk: 50, cups: 20, till: 0 };
 
   setInventory(obj = this.initialInventory) {
     sessionStorage.clear();
@@ -147,7 +147,6 @@ export class displayMessage {
     itemDisplay.appendChild(itemValue);
     document.querySelector("#alertMessage").append(itemDisplay);
   }
-
   missingIngredientAlert(list) {
     this.clearDisplayAlert();
     for (let [coffeeType, ingredient] of list) {
