@@ -1,6 +1,6 @@
 # Coffee Machine simulator
 
-Coffee is certainely one of the few things that make the world go round, at least my world! To get to understand OOP and JS Classes a bit better, I set up this charming simulator.
+Coffee is certainely one of the few things that make the world go round, at least my world! To get into OOP and JS Classes a bit better, I set up this charming coffee machine simulator.
 
 ## Prompt
 
@@ -14,7 +14,7 @@ This machine uses regular ingredients — coffee, water, milk, and plastic cups.
 - [x] The machine has some styling.
 - [x] It evaluates how many ingredients it takes to make a coffee.
 - [x] It calculates how many cups it can make based on the number of ingredients.
-- [ ] It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
+- [x] It performs three basic actions: collect the money, replenish the supplies, and serve the coffee.
 - [x] It displays how many supplies it has on the screen.
 
 ## Tech stack
