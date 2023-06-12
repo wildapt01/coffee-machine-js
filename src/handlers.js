@@ -64,6 +64,7 @@ export function handleClickCollect() {
   alertDisplay.displayAlert("Till collected!");
   setTimeout(() => {
     alertSection.classList.toggle("invisible");
+    alertDisplay.clearDisplayAlert();
   }, 1500);
 }
 
