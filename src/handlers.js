@@ -87,7 +87,6 @@ export function handleClickRefill(evnt) {
   alertSection.classList.toggle("visible");
   // Resetting disabled coffee selectors
   const coffeeButtons = document.querySelectorAll("#coffeeSelectors > button");
-  console.log("coffeeButtons :>> ", coffeeButtons);
   for (const element of coffeeButtons) {
     if (element.hasAttribute("disabled")) {
       element.removeAttribute("disabled");
