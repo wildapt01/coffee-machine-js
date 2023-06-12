@@ -1,5 +1,5 @@
 export class onOff {
-  initialInventory = { beans: 200, water: 100, milk: 50, cups: 20, till: 0 };
+  initialInventory = { beans: 45, water: 100, milk: 50, cups: 20, till: 0 };
 
   setInventory(obj = this.initialInventory) {
     sessionStorage.clear();
@@ -23,6 +23,7 @@ export class onOff {
       }
     }
   }
+
   displayInventory() {
     this.clearDisplay();
     const inventory = this.getInventory();
@@ -88,6 +89,7 @@ export class displayMessage {
     const currentInventory = start.getInventory();
     const recipes = coffee.recipes;
     const result = {};
+    const missing = [];
     for (const coffeeType in recipes) {
       const recipe = recipes[coffeeType];
       // Yield per ingredient quantities in inventory, per coffee type
@@ -96,15 +98,20 @@ export class displayMessage {
         // Excluding the till: not an ingredient!
         if (item === "till") continue;
         const needed = recipe[item];
-        const yields = Math.floor(currentInventory[item] / needed)
+        const itemYield = Math.floor(currentInventory[item] / needed)
           ? Math.floor(currentInventory[item] / needed)
           : 0;
-        yieldList.push(yields);
+
+        if (itemYield === 0) {
+          missing.push([coffeeType, item]);
+        }
+
+        yieldList.push(itemYield);
       }
       // Isolating the lowest yield for the coffee type
       result[coffeeType] = yieldList.sort((num1, num2) => num1 - num2)[0];
     }
-    return result;
+    return [result, missing];
   }
   clearDisplayYields() {
     const yieldsItems = document.querySelectorAll("#coffeeYields p");
@@ -116,7 +123,9 @@ export class displayMessage {
   }
   displayYields() {
     this.clearDisplayYields();
-    const yieldsObj = this.possibleCoffees();
+    const missing = this.possibleCoffees()[1];
+    if (missing.length > 0) this.missingIngredientAlert(missing);
+    const yieldsObj = this.possibleCoffees()[0];
     for (const [key, value] of Object.entries(yieldsObj)) {
       const itemDisplay = document.createElement("p");
       const itemValue = document.createTextNode(`${key}: ${value}`);
@@ -133,10 +142,31 @@ export class displayMessage {
     }
   }
   displayAlert(content) {
-    this.clearDisplayAlert();
     const itemDisplay = document.createElement("p");
     const itemValue = document.createTextNode(content);
     itemDisplay.appendChild(itemValue);
     document.querySelector("#alertMessage").append(itemDisplay);
+  }
+
+  missingIngredientAlert(list) {
+    this.clearDisplayAlert();
+    for (let [coffeeType, ingredient] of list) {
+      const typeButton = document.querySelector(`#${coffeeType}`);
+      typeButton.classList.toggle("inactive");
+      typeButton.classList.toggle("active");
+      typeButton.setAttribute("disabled", "true");
+      const article = coffeeType === "espresso" ? "n" : "";
+      coffeeType = coffeeType === "regular" ? "regular coffee" : coffeeType;
+      const line = `Not enough ${ingredient} to brew a${article} ${coffeeType}`;
+      this.displayAlert(line);
+    }
+    this.displayAlert("Press the REFILL button!");
+    const alertSection = document.querySelector("#alerts");
+    alertSection.classList.toggle("invisible");
+    alertSection.classList.toggle("visible");
+    const refillButton = document.querySelector("#refill");
+    refillButton.removeAttribute("disabled");
+    refillButton.classList.toggle("inactive");
+    refillButton.classList.toggle("active");
   }
 }

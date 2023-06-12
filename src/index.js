@@ -4,8 +4,6 @@ function handleClickSelectors(evnt) {
   const brewButton = document.querySelector("#makeCoffee");
   const newCoffee = new brewing();
   const coffeeButtons = document.querySelector("#coffeeSelectors").children;
-  console.log("coffeeButtons :>> ", coffeeButtons);
-  // coffeeButtons.children.classList.remove("selected");
   for (const button of coffeeButtons) {
     if (button.classList.contains("selected")) {
       button.classList.remove("selected");
@@ -71,6 +69,8 @@ function handleClickCollect() {
 
 function handleClickRefill(evnt) {
   const start = new onOff();
+  const coffeeProcess = new brewing();
+  const messages = new displayMessage();
   const fullInventory = start.initialInventory;
   const currentInventory = start.getInventory();
   const currentTill = currentInventory.till;
@@ -80,6 +80,20 @@ function handleClickRefill(evnt) {
   evnt.target.classList.toggle("inactive");
   evnt.target.classList.toggle("active");
   evnt.target.setAttribute("disabled", "true");
+  messages.clearDisplayAlert();
+  const alertSection = document.querySelector("#alerts");
+  alertSection.classList.toggle("invisible");
+  alertSection.classList.toggle("visible");
+  // Resetting disabled coffee selectors
+  const coffeeButtons = document.querySelectorAll("#coffeeSelectors > button");
+  console.log("coffeeButtons :>> ", coffeeButtons);
+  for (const element of coffeeButtons) {
+    if (element.hasAttribute("disabled")) {
+      element.removeAttribute("disabled");
+      coffeeProcess.textColorToggle(element);
+    }
+  }
+  messages.displayYields();
 }
 //* Actions
 //* =======================
@@ -120,5 +134,5 @@ document
 document
   .querySelector("#collect")
   .addEventListener("click", handleClickCollect);
-// Refilling the inventory
+// Refilling the inventory. Till keeps its current value
 document.querySelector("#refill").addEventListener("click", handleClickRefill);
